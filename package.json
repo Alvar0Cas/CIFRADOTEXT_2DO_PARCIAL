@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "sass styles/sass/styles.sass:public/css/styles.css",
+    "sass-watch": "sass --watch styles/sass/styles.sass:public/css/styles.css",
+    "start": "npm run sass && nodemon server.js"
   },
   "keywords": [],
   "author": "",
