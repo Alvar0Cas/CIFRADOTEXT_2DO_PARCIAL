@@ -29,6 +29,11 @@ passport.deserializeUser(function(username, done) {
   done(null, { username: username });
 });
 
+// Middleware para procesar archivos estáticos en la carpeta 'public'
+app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // Configurar Express para usar Pug como motor de plantillas
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -44,8 +49,9 @@ app.use(passport.session());
 
 // Agregar aquí tus rutas y configuraciones adicionales
 
-// Iniciar el servidor
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, function() {
-  console.log(`Servidor en ejecución en el puerto ${PORT}`);
+
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Servidor iniciado en http://localhost:${port}`);
 });
+
