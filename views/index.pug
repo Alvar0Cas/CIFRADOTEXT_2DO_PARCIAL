@@ -1,8 +1,23 @@
 doctype html
-html(lang="es")
+html
   head
-    title Template Pug
+    title= title
+    link(rel='stylesheet', href='/css/styles.css')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+include navbar 
+
+
   body
-    h1#encabezado Hola Mundo!
-    p.centrar Ingresa tu información
-    input(type="text", placeholder="Ingresa tu nombre")
+    .feedback-card
+      .feedback-header SEND FEEDBACK
+      form.feedback-body
+        input.feedback-body__email(placeholder="Email", type="email")
+        textarea.feedback-body__message(placeholder="Message", type="text")
+        button.feedback-body__submit SEND
+        script.
+          (function () {
+            var btn = document.getElementsByClassName("feedback-body__submit")[0];
+            btn.onclick = function(e) {
+              e.preventDefault();
+            };
+          })()

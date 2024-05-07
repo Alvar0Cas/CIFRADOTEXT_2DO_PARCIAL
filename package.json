@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass sass/styles.sass:styles/styles.css",
+    "sass": "sass styles/sass/styles.sass:styles/styles.css",
     "sass-watch": "sass --watch sass/styles.sass:styles/styles.css",
     "start": "npm run sass && nodemon server.js"
   },
