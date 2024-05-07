@@ -4,18 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass styles/sass/styles.sass:public/css/styles.css",
-    "sass-watch": "sass --watch styles/sass/styles.sass:public/css/styles.css",
+    "sass": "sass sass/styles.sass:styles/styles.css",
+    "sass-watch": "sass --watch sass/styles.sass:styles/styles.css",
     "start": "npm run sass && nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "crypto-js": "^4.2.0",
     "express": "^4.19.2",
     "mysql2": "^3.9.7",
     "nodemon": "^3.1.0",
     "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
     "pug": "^3.0.2",
     "sass": "^1.75.0"
   }
