@@ -1,11 +1,11 @@
 :root
   --background: #9c88ff
-  --navbar-width: 256px
-  --navbar-width-min: 80px
-  --navbar-dark-primary: #18283b
-  --navbar-dark-secondary: #2c3e50
-  --navbar-light-primary: #f5f6fa
-  --navbar-light-secondary: #8392a5
+  --nav-bar-width: 256px
+  --nav-bar-width-min: 80px
+  --nav-bar-dark-primary: #18283b
+  --nav-bar-dark-secondary: #2c3e50
+  --nav-bar-light-primary: #f5f6fa
+  --nav-bar-light-secondary: #8392a5
 
 html, body
   margin: 0
@@ -13,10 +13,10 @@ html, body
 
 #nav-toggle:checked
   & ~ #nav-header
-    width: calc(var(--navbar-width-min) - 16px)
+    width: calc(var(--nav-bar-width-min) - 16px)
 
   & ~#nav-content, & ~ #nav-footer
-    width: var(--navbar-width-min)
+    width: var(--nav-bar-width-min)
   
   & ~ #nav-header
     #nav-title
@@ -29,11 +29,11 @@ html, body
       transform: translate(-50%)
     
     #nav-toggle-burger
-      background: var(--navbar-light-primary)
+      background: var(--nav-bar-light-primary)
 
       &:before, &::after
         width: 16px
-        background: var(--navbar-light-secondary)
+        background: var(--nav-bar-light-secondary)
         transform: translate(0, 0) rotate(0deg)
 
   & ~ #nav-content
@@ -61,11 +61,11 @@ html, body
   left: 1vw
   top: 1vw
   height: calc(100% - 2vw)
-  background: var(--navbar-dark-primary)
+  background: var(--nav-bar-dark-primary)
   border-radius: 16px
   display: flex
   flex-direction: column
-  color: var(--navbar-light-primary)
+  color: var(--nav-bar-light-primary)
   font-family: Verdana, Geneva, Tahoma, sans-serif
   overflow: hidden
   user-select: none
@@ -76,7 +76,7 @@ html, body
     left: 16px
     width: calc(100% - 32px)
     border: none
-    border-top: solid 1px var(--navbar-dark-secondary)
+    border-top: solid 1px var(--nav-bar-dark-secondary)
 
   a
     color: inherit
@@ -87,11 +87,11 @@ html, body
 
 #nav-header
   position: relative
-  width: var(--navbar-width)
+  width: var(--nav-bar-width)
   left: 16px
-  width: calc(var(--navbar-width) - 16px)
+  width: calc(var(--nav-bar-width) - 16px)
   min-height: 80px
-  background: var(--navbar-dark-primary)
+  background: var(--nav-bar-dark-primary)
   border-radius: 16px
   z-index: 2
   display: flex
@@ -120,7 +120,7 @@ label[for="nav-toggle"]
   position: relative
   width: 16px
   height: 2px
-  background: var(--navbar-dark-primary)
+  background: var(--nav-bar-dark-primary)
   border-radius: 99px
   transition: background .2s
 
@@ -130,7 +130,7 @@ label[for="nav-toggle"]
     top: -6px
     width: 10px
     height: 2px
-    background: var(--navbar-light-primary)
+    background: var(--nav-bar-light-primary)
     border-radius: 99px
     transform: translate(2px, 8px) rotate(30deg)
     transition: .2s
@@ -144,9 +144,9 @@ label[for="nav-toggle"]
   padding: 16px 0
   position: relative
   flex: 1
-  width: var(--navbar-width)
-  background: var(--navbar-dark-primary)
-  box-shadow: 0 0 0 16px var(--navbar-dark-primary)
+  width: var(--nav-bar-width)
+  background: var(--nav-bar-dark-primary)
+  box-shadow: 0 0 0 16px var(--nav-bar-dark-primary)
   direction: rtl
   overflow-x: hidden
   transition: width .2s
@@ -193,7 +193,7 @@ label[for="nav-toggle"]
   height: 54px
   display: flex
   align-items: center
-  color: var(--navbar-light-secondary)
+  color: var(--nav-bar-light-secondary)
   direction: ltr
   cursor: pointer
   z-index: 1
@@ -207,7 +207,7 @@ label[for="nav-toggle"]
 
   @for $i from 1 through 8
     &:nth-of-type(#{$i}):hover
-      color: var(--navbar-dark-primary)
+      color: var(--nav-bar-dark-primary)
 
       & ~ #nav-content-highlight
         top: ($i - 1) * 54 + 16px
@@ -218,9 +218,9 @@ label[for="nav-toggle"]
 
 #nav-footer
   position: relative
-  width: var(--navbar-width)
+  width: var(--nav-bar-width)
   height: 54px
-  background: var(--navbar-dark-secondary)
+  background: var(--nav-bar-dark-secondary)
   border-radius: 16px
   display: flex
   flex-direction: column
@@ -257,7 +257,7 @@ label[for="nav-toggle"]
   transition: opacity 1s
 
 #nav-footer-subtitle
-  color: var(--navbar-light-secondary)
+  color: var(--nav-bar-light-secondary)
   font-size: .6rem
 
 #nav-toggle:not(:checked) ~ #nav-footer-toggle:checked + #nav-footer
@@ -279,9 +279,9 @@ label[for="nav-footer-toggle"]
 
 #nav-footer-content
   margin: 0 16px 16px 16px
-  border-top: solid 1px var(--navbar-light-secondary)
+  border-top: solid 1px var(--nav-bar-light-secondary)
   padding: 16px 0
-  color: var(--navbar-light-secondary)
+  color: var(--nav-bar-light-secondary)
   font-size: .8rem
   overflow: auto
 

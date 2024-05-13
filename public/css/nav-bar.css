@@ -1,0 +1,9 @@
+#nav-bar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px; /* Puedes ajustar este valor según tus necesidades */
+  height: 90%; /* Esto lo hace ocupar toda la altura de la pantalla */
+  background: var(--nav-bar-dark-primary);
+  overflow-y: auto; /* Si necesitas scroll vertical */
+}
