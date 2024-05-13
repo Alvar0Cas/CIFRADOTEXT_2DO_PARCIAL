@@ -1,23 +1,20 @@
 doctype html
-html
+html(lang="en")
   head
-    title= title
-    link(rel='stylesheet', href='/css/styles.css')
+    meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-
+    title Text Encoder
+    link(rel="stylesheet", href="/style.css")
   body
-    include nav-bar
-
-    .feedback-card
-      .feedback-header CIFRADOR
-      form.feedback-body
-        input.feedback-body__email(placeholder="Email", type="email")
-        textarea.feedback-body__message(placeholder="Message", type="text")
-        button.feedback-body__submit SEND
-        script.
-          (function () {
-            var btn = document.getElementsByClassName("feedback-body__submit")[0];
-            btn.onclick = function(e) {
-              e.preventDefault();
-            };
-          })()
+    h1 Text Encoder
+    form(action="/encode", method="POST")
+      textarea(name="text", placeholder="Enter text to encode...").input-text
+      select(name="method")
+        option(value="vigenere") Vigenère Cipher
+        option(value="cesar") Caesar Cipher
+        option(value="base64") Base64
+        option(value="binary") Binary
+      button(type="submit") Encode
+    if encodedText
+      h2 Encoded Text
+      textarea.readonly(name="encodedText", readonly)= encodedText

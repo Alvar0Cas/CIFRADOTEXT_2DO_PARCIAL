@@ -4,6 +4,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
 
+
 // Crear una instancia de la aplicación Express
 const app = express();
 

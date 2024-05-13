@@ -1,64 +1,27 @@
-// Variables
-$shadow: -0.6rem 0.6rem 0 rgba(29, 30, 28, 0.26)
+body 
+  font-family: Arial, sans-serif
+  margin: 20px
 
-// Global Styles
-*
-  font-family: 'Roboto', sans-serif
+h1 
+  color: #333
 
-// Body Styles
-body
-  margin: 0
-  padding: 0
-  background-color: #a2a2a2
-  display: flex
-  justify-content: center
-  flex-direction: column
-  height: 100vh
+input[type="text"], textarea, select 
+  width: 100%
+  padding: 10px
+  margin: 5px 0
+  border-radius: 5px
+  border: 1px solid #ccc
 
-// Form Element Styles
-input, button, textarea
-  border: 2px solid rgba(0, 0, 0, 0.6)
-  background-image: none
-  background-color: #dadad3
-  box-shadow: none
-
-  &:focus
-    outline: none
-
-// Textarea Styles
-textarea
-  min-height: 50px
-  resize: vertical
-
-// Button Styles
-button
+button 
+  background-color: #4caf50
+  color: white
+  padding: 10px 20px
+  border: none
+  border-radius: 5px
   cursor: pointer
-  font-weight: 500
 
-// Feedback Styles
-.feedback
-  &-card
-    border: 1px solid black
-    max-width: 980px
-    background-color: #fff
-    margin: 0 auto
-    box-shadow: $shadow
+  &:hover 
+    background-color: #45a049
 
-  &-header
-    text-align: center
-    padding: 8px
-    font-size: 14px
-    font-weight: 700
-    border-bottom: 1px solid black
-
-  &-body
-    padding: 20px
-    display: flex
-    flex-direction: column
-
-    &__message
-      margin-top: 10px
-
-    button
-      margin-top: 10px
-      align-self: flex-end
+.readonly 
+  cursor: not-allowed
