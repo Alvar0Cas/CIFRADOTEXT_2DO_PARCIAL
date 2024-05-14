@@ -1,0 +1,15 @@
+//- layout.pug
+doctype html
+html
+  head
+    title Encriptación Base64 en Pug
+  body
+    h1 Encriptación Base64 en Pug
+    p Texto original: #{texto}
+    p Texto en Base64: #{encriptarBase64(texto)}
+
+    //- JavaScript para mostrar en consola
+    script.
+      const texto = !{JSON.stringify(texto)};
+      console.log('Texto original:', texto);
+      console.log('Texto en Base64:', btoa(unescape(encodeURIComponent(texto))));

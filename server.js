@@ -1,9 +1,19 @@
+//rutas
+
+const base64Router = require ('/routes/index')
+const cesarRouter = require ('/routes/index')
+const loginRouter = require ('/routes/index')
+const registroRouter = require ('/routes/index')
+const base64Router = require ('/routes/index')
+
+
 // Importar los módulos necesarios
 const express = require('express');
 const path = require('path');
 
 // Crear una instancia de la aplicación Express
 const app = express();
+
 
 // Función para cifrar en Base64
 function cifrarBase64(texto) {
@@ -137,3 +147,4 @@ const port = 3000;
 app.listen(port, () => {
   console.log(`Servidor iniciado en http://localhost:${port}`);
 });
+
