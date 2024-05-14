@@ -1,15 +1,57 @@
-//- layout.pug
-doctype html
-html
-  head
-    title Encriptación Base64 en Pug
-  body
-    h1 Encriptación Base64 en Pug
-    p Texto original: #{texto}
-    p Texto en Base64: #{encriptarBase64(texto)}
+extends layout
 
-    //- JavaScript para mostrar en consola
+block content
+  .login-container
+    h1(class='title') #{title}
+
+    if error
+      p= error
+    form(action='/login' method='POST' class='login-form')
+      .form-group
+        label(for='texto' class='form-label') Texto a cifrar
+        input(type='text' name='texto' id='texto' placeholder='Texto a cifrar' class='form-input', required)
+
+      .form-group
+        label(for='desplazamiento' class='form-label') Desplazamiento
+        input(type='number' name='desplazamiento' id='desplazamiento' placeholder='Desplazamiento' class='form-input', required)
+
+      .form-group
+        button(type='button' id='cifrarBtn' class='submit-button') Cifrar
+
+      .form-group
+        label(for='resultado' class='form-label') Texto cifrado
+        input(type='text' name='resultado' id='resultado' placeholder='Texto cifrado' class='form-input' readonly)
+
+    //- Script en línea para cifrar el texto
     script.
-      const texto = !{JSON.stringify(texto)};
-      console.log('Texto original:', texto);
-      console.log('Texto en Base64:', btoa(unescape(encodeURIComponent(texto))));
+      const cifrarBtn = document.getElementById('cifrarBtn');
+      cifrarBtn.addEventListener('click', () => {
+        const textoInput = document.getElementById('texto').value;
+        const desplazamientoInput = document.getElementById('desplazamiento').value;
+        const resultadoInput = document.getElementById('resultado');
+
+        if (textoInput && desplazamientoInput) {
+          const resultadoCifrado = cifrarCesar(textoInput, parseInt(desplazamientoInput));
+          resultadoInput.value = resultadoCifrado;
+        } else {
+          resultadoInput.value = '';
+        }
+      });
+
+      function cifrarCesar(texto, desplazamiento) {
+        return texto.split('').map(char => {
+          let code = char.charCodeAt(0);
+
+          if (char.match(/[a-z]/i)) {
+            if (char.match(/[a-z]/) && code + desplazamiento > 122) {
+              code = 96 + (code + desplazamiento - 122);
+            } else if (char.match(/[A-Z]/) && code + desplazamiento > 90) {
+              code = 64 + (code + desplazamiento - 90);
+            } else {
+              code += desplazamiento;
+            }
+          }
+
+          return String.fromCharCode(code);
+        }).join('');
+      }

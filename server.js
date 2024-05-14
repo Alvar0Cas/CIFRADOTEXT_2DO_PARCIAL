@@ -1,144 +1,109 @@
-//rutas
-
-const base64Router = require ('/routes/index')
-const cesarRouter = require ('/routes/index')
-const loginRouter = require ('/routes/index')
-const registroRouter = require ('/routes/index')
-const base64Router = require ('/routes/index')
-
-
 // Importar los módulos necesarios
 const express = require('express');
 const path = require('path');
+const router = require('./routers/router');
+const bodyParser = require('body-parser');
+
 
 // Crear una instancia de la aplicación Express
 const app = express();
 
-
-// Función para cifrar en Base64
-function cifrarBase64(texto) {
-  return Buffer.from(texto).toString('base64');
-}
-
-// Función para descifrar en Base64
-function descifrarBase64(textoCifrado) {
-  return Buffer.from(textoCifrado, 'base64').toString('utf-8');
-}
-
-// Función para cifrar con el cifrado de Vigenère
-function cifrarVigenere(texto, clave) {
-  let resultado = '';
-  for (let i = 0; i < texto.length; i++) {
-    const textoChar = texto.charCodeAt(i);
-    const claveChar = clave.charCodeAt(i % clave.length);
-    resultado += String.fromCharCode((textoChar + claveChar) % 256);
-  }
-  return resultado;
-}
-
-// Función para descifrar con el cifrado de Vigenère
-function descifrarVigenere(textoCifrado, clave) {
-  let resultado = '';
-  for (let i = 0; i < textoCifrado.length; i++) {
-    const textoChar = textoCifrado.charCodeAt(i);
-    const claveChar = clave.charCodeAt(i % clave.length);
-    resultado += String.fromCharCode((textoChar - claveChar + 256) % 256);
-  }
-  return resultado;
-}
-
-// Función para cifrar con el código César
-function cifrarCesar(texto, desplazamiento) {
-  let resultado = '';
-  for (let i = 0; i < texto.length; i++) {
-    const charCode = texto.charCodeAt(i);
-    resultado += String.fromCharCode((charCode + desplazamiento) % 256);
-  }
-  return resultado;
-}
-
-// Función para descifrar con el código César
-function descifrarCesar(textoCifrado, desplazamiento) {
-  let resultado = '';
-  for (let i = 0; i < textoCifrado.length; i++) {
-    const charCode = textoCifrado.charCodeAt(i);
-    resultado += String.fromCharCode((charCode - desplazamiento + 256) % 256);
-  }
-  return resultado;
-}
-
-// Función para cifrar en código binario
-function cifrarBinario(texto) {
-  return texto.split('').map(char => char.charCodeAt(0).toString(2)).join(' ');
-}
-
-// Función para descifrar en código binario
-function descifrarBinario(textoBinario) {
-  return textoBinario.split(' ').map(bin => String.fromCharCode(parseInt(bin, 2))).join('');
-}
-
-// Configurar Express para usar Pug como motor de plantillas
+// Configurar middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// Definir rutas para cifrar/descifrar
-app.get('/cifrar-base64/:texto', (req, res) => {
-  const texto = req.params.texto;
-  const textoCifrado = cifrarBase64(texto);
-  res.send(textoCifrado);
-});
+// Definir rutas
+app.use('/', router);
 
-app.get('/descifrar-base64/:textoCifrado', (req, res) => {
-  const textoCifrado = req.params.textoCifrado;
-  const texto = descifrarBase64(textoCifrado);
-  res.send(texto);
-});
 
-// Rutas para cifrar/descifrar con Vigenère
-app.get('/cifrar-vigenere/:texto/:clave', (req, res) => {
-  const texto = req.params.texto;
-  const clave = req.params.clave;
-  const textoCifrado = cifrarVigenere(texto, clave);
-  res.send(textoCifrado);
-});
+// Funciones para cifrar/descifrar
+function cifrarCesar(texto, desplazamiento) {
+  // Implementa la lógica para cifrar en código César aquí
+}
 
-app.get('/descifrar-vigenere/:textoCifrado/:clave', (req, res) => {
-  const textoCifrado = req.params.textoCifrado;
-  const clave = req.params.clave;
-  const texto = descifrarVigenere(textoCifrado, clave);
-  res.send(texto);
-});
+function descifrarCesar(textoCifrado, desplazamiento) {
+  // Implementa la lógica para descifrar en código César aquí
+}
 
-// Rutas para cifrar/descifrar con Código César
-app.get('/cifrar-cesar/:texto/:desplazamiento', (req, res) => {
-  const texto = req.params.texto;
-  const desplazamiento = parseInt(req.params.desplazamiento);
+function cifrarBinario(texto) {
+  // Implementa la lógica para cifrar en código binario aquí
+}
+
+function descifrarBinario(textoBinario) {
+  // Implementa la lógica para descifrar en código binario aquí
+}
+
+function cifrarHexadecimal(texto) {
+  // Implementa la lógica para cifrar en hexadecimal aquí
+}
+
+function descifrarHexadecimal(textoHexadecimal) {
+  // Implementa la lógica para descifrar en hexadecimal aquí
+}
+
+function cifrarBase64(texto) {
+  // Implementa la lógica para cifrar en Base64 aquí
+}
+
+function descifrarBase64(textoCifrado) {
+  // Implementa la lógica para descifrar en Base64 aquí
+}
+
+// Rutas para cifrar/descifrar
+app.post('/cifrar-cesar', (req, res) => {
+  const texto = req.body.texto;
+  const desplazamiento = parseInt(req.body.desplazamiento);
   const textoCifrado = cifrarCesar(texto, desplazamiento);
-  res.send(textoCifrado);
+  res.render('cesar', { resultado: textoCifrado });
 });
 
-app.get('/descifrar-cesar/:textoCifrado/:desplazamiento', (req, res) => {
-  const textoCifrado = req.params.textoCifrado;
-  const desplazamiento = parseInt(req.params.desplazamiento);
+app.post('/descifrar-cesar', (req, res) => {
+  const textoCifrado = req.body.texto;
+  const desplazamiento = parseInt(req.body.desplazamiento);
   const texto = descifrarCesar(textoCifrado, desplazamiento);
-  res.send(texto);
+  res.render('cesar', { resultado: texto });
 });
 
-// Rutas para cifrar/descifrar en código binario
-app.get('/cifrar-binario/:texto', (req, res) => {
-  const texto = req.params.texto;
+app.post('/cifrar-binario', (req, res) => {
+  const texto = req.body.texto;
   const textoCifrado = cifrarBinario(texto);
-  res.send(textoCifrado);
+  res.render('binario', { resultado: textoCifrado });
 });
 
-app.get('/descifrar-binario/:textoBinario', (req, res) => {
-  const textoBinario = req.params.textoBinario;
+app.post('/descifrar-binario', (req, res) => {
+  const textoBinario = req.body.texto;
   const texto = descifrarBinario(textoBinario);
-  res.send(texto);
+  res.render('binario', { resultado: texto });
+});
+
+app.post('/cifrar-hexadecimal', (req, res) => {
+  const texto = req.body.texto;
+  const textoCifrado = cifrarHexadecimal(texto);
+  res.render('hexadecimal', { resultado: textoCifrado });
+});
+
+app.post('/descifrar-hexadecimal', (req, res) => {
+  const textoHexadecimal = req.body.texto;
+  const texto = descifrarHexadecimal(textoHexadecimal);
+  res.render('hexadecimal', { resultado: texto });
+});
+
+app.post('/cifrar-base64', (req, res) => {
+  const texto = req.body.texto;
+  const textoCifrado = cifrarBase64(texto);
+  res.render('base64', { resultado: textoCifrado });
+});
+
+app.post('/descifrar-base64', (req, res) => {
+  const textoCifrado = req.body.texto;
+  const texto = descifrarBase64(textoCifrado);
+  res.render('base64', { resultado: texto });
 });
 
 // Definir una ruta para la página principal
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.render('index', { title: 'Página de inicio' });
 });
 
@@ -147,4 +112,3 @@ const port = 3000;
 app.listen(port, () => {
   console.log(`Servidor iniciado en http://localhost:${port}`);
 });
-

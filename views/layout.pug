@@ -13,11 +13,7 @@ html
         li
           a(href='/') Inicio
         li
-          a(href='/catalogo') Productos
-        li
-          a(href='/carrito')
-            i(class='material-symbols-rounded') shopping_cart
-            span.badge= carrito.length
+        
         if user == ''
           li
             a(href='/login') Iniciar sesión
