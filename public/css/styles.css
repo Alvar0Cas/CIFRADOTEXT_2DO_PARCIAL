@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
 
 .material-symbols-rounded {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
-.noto-sans-Noto style {
+.noto-sans-Noto-style {
   font-family: "Noto Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -24,16 +26,19 @@ nav {
   padding: 5px 0;
   text-align: center;
 }
+
 nav ul {
   display: flex;
   list-style-type: none;
   margin-left: auto;
   padding: 0;
 }
+
 nav ul li {
   display: inline-block;
   margin-right: 20px;
 }
+
 nav ul li a {
   display: flex;
   color: white;
@@ -43,6 +48,7 @@ nav ul li a {
   border-radius: 20px;
   transition: background-color 0.3s;
 }
+
 nav ul li a:hover {
   background-color: #ffffff;
 }
@@ -104,12 +110,14 @@ h1 {
   width: 100%;
   flex-direction: column;
 }
+
 .form-group button {
   color: rgb(249, 249, 249);
   background-color: #ff0000;
   border-radius: 20px;
   align-self: center;
 }
+
 .form-group button:hover {
   background-color: #c8494b;
 }
@@ -132,7 +140,11 @@ h1 {
   border-radius: 20px;
   align-self: center;
 }
-.form-input input:hover, .form-input input:focus, .form-input input:active, .form-input input:focus-visible {
+
+.form-input input:hover,
+.form-input input:focus,
+.form-input input:active,
+.form-input input:focus-visible {
   border: 1px solid #EEA5A6;
   outline-width: 1px;
   outline-style: solid;
@@ -154,6 +166,7 @@ h1 {
   margin: 20px;
   width: 100%;
 }
+
 .submit-button:hover {
   background-color: #ff7275;
 }
@@ -163,16 +176,17 @@ h1 {
   text-align: center;
 }
 
-
 .action-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 2em auto;
 }
+
 .action-buttons form {
   margin: 0;
 }
+
 .action-buttons button {
   padding: 5px 10px;
   margin-right: 5px;
@@ -182,14 +196,15 @@ h1 {
   border-radius: 20px;
   cursor: pointer;
 }
+
 .action-buttons button:hover {
   background-color: #EEA5A6;
 }
+
 .action-buttons span {
   margin: 0 5px;
   font-weight: bold;
 }
-
 
 p {
   color: #000000;
@@ -213,7 +228,8 @@ p.empty-cart {
   align-items: center;
   min-width: 250px;
 }
-.search-bar input[type=text] {
+
+.search-bar input[type="text"] {
   flex: 1;
   padding: 8px;
   font-size: 16px;
@@ -231,42 +247,9 @@ p.empty-cart {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 .search-bar button:hover {
   background-color: #ff6366;
-}
-
-.producto-container {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(100px, 1fr));
-  gap: 25px;
-}
-
-
-.producto button:hover {
-  background-color: #EEA5A6;
-}
-
-.producto-label {
-  font-size: 18px;
-  font-family: "Reddit Mono";
-}
-
-.producto-precio {
-  font-size: 14px;
-  font-family: "Reddit Mono";
-}
-
-.producto-cell {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  margin: auto 0.15em;
-}
-.producto-cell img {
-  max-width: 50px;
-}
-.producto-cell span {
-  margin-left: 2em;
 }
 
 .button-container {
@@ -291,6 +274,7 @@ p.empty-cart {
   background-color: #87A8A4;
   color: white;
 }
+
 .button-confirm:hover {
   background-color: #416D19;
 }
@@ -301,22 +285,19 @@ p.empty-cart {
 }
 
 .button-return {
-  background-color: #9AD0EC;
-  color: white;
+  background-color: #ffcc00;
+  color: rgb(0, 0, 0);
 }
+
 .button-return:hover {
-  background-color: #1572A1;
+  background-color: #7e8041;
 }
 
 .button-confirm:hover,
 .button-cancel:hover,
 .button-return:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
-
-
-
-
 
 @media only screen and (max-width: 600px) {
   nav {
@@ -328,5 +309,4 @@ p.empty-cart {
   nav li {
     margin-right: 10px;
   }
-
 }

@@ -1,20 +1,33 @@
-extends layout
-
-block content
 doctype html
-html(lang="en")
+html(lang="es")
   head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Cifrado César
-    link(rel="stylesheet", href="styles.css")
+    title Cifrado de César
+    link(rel="stylesheet" href="/stylesheets/cifradocesar.css")
   body
-    form#exer17(method="post" action="/cifradocesar")
-      label(for="txt") Introduce el texto:
-      input(type="text", id="txt", name="txt")
-      button(type="submit") Cifrar
-
+    h2 Cifrado de césar
+    br
+    p En criptografía, el cifrado César, también conocido como cifrado por desplazamiento, código de César o desplazamiento de César, es una de las técnicas de cifrado más simples y más usadas. Es un tipo de cifrado por sustitución en el que una letra en el texto original es reemplazada por otra letra que se encuentra un número fijo de posiciones más adelante en el alfabeto. Por ejemplo, con un desplazamiento de 3, la A sería sustituida por la D (situada 3 lugares a la derecha de la A), la B sería reemplazada por la E, etc. Este método debe su nombre a Julio César, que lo usaba para comunicarse con sus generales.
+    br
+    p El cifrado César muchas veces puede formar parte de sistemas más complejos de codificación, como el cifrado Vigenère, e incluso tiene aplicación en el sistema ROT13. Como todos los cifrados de sustitución alfabética simple, el cifrado César se descifra con facilidad y en la práctica no ofrece mucha seguridad en la comunicación.
+    br
+    .img-container
+      img(src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Caesar3.svg" alt="cifrado de cesar")
+    br
+    form#exer17
+      .form-item
+        label(for="txt") Texto: a cifrar
+        input(type="text" id="txt")
+      .form-item
+        input.button(type="submit" value="Cifrar")
+    br
     #exe17response
-      p#exe17txtNormal
-
-    #exe17response2
+    br
+    div
+      p
+        b Texto normal:
+        span#exe17txtNormal
+      p
+        b Texto cifrado:
+        span#exe17response2
+    br
+    script(src="/javascripts/cifradocesar.js")

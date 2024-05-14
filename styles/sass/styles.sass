@@ -1,118 +1,264 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap")
+@import url("https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap")
 
-// Colores nuevos
-$primary-color: #5E1745; // Color primario
-$secondary-color: #FF7E67; // Color secundario
-$accent-color: #FBEED3; // Color de acento
+.material-symbols-rounded
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
 
-.material-symbols-rounded {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-}
+.noto-sans-Noto-style
+  font-family: "Noto Sans", sans-serif
+  font-weight: 400
+  font-style: normal
 
-.noto-sans-Noto style {
-  font-family: "Noto Sans", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+body
+  font-family: "Noto Sans", sans-serif
+  margin: 0
+  padding: 0
+  background-color: #F0F3FF
 
-body {
-  font-family: "Noto Sans", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: $accent-color; // Usando el color de acento como color de fondo
-}
+nav
+  display: flex
+  justify-content: space-between
+  align-items: center
+  background-color: #ff0000
+  padding: 5px 0
+  text-align: center
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: $primary-color; // Usando el color primario para la barra de navegación
-  padding: 5px 0;
-  text-align: center;
-}
-nav ul li a {
-  color: white; // Texto blanco para los enlaces de navegación
-}
-nav ul li a:hover {
-  background-color: #EEA5A6; // Color de fondo del enlace al pasar el ratón
-}
+  ul
+    display: flex
+    list-style-type: none
+    margin-left: auto
+    padding: 0
 
-h1 {
-  text-align: center;
-  color: $primary-color; // Usando el color primario para los títulos
-}
+    li
+      display: inline-block
+      margin-right: 20px
 
-.login-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-}
+      a
+        display: flex
+        color: white
+        text-decoration: none
+        font-weight: bold
+        padding: 5px 10px
+        border-radius: 20px
+        transition: background-color 0.3s
 
-.title {
-  font-size: 24px;
-  text-align: center;
-}
+        &:hover
+          background-color: #ffffff
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+i
+  vertical-align: middle
 
-.form-group button {
-  background-color: $primary-color; // Usando el color primario para los botones
-}
-.form-group button:hover {
-  background-color: #EEA5A6; // Color de fondo del botón al pasar el ratón
-}
+.badge
+  position: relative
+  top: -2px
+  background-color: #ff0004
+  color: white
+  border-radius: 50%
+  padding: 5px 8px
+  font-size: 12px
 
-.form-label {
-  font-size: 16px;
-  margin: 10px 0;
-}
+.container
+  width: auto
 
-.form-input {
-  border: 1px solid $primary-color; // Usando el color primario para el borde del campo de entrada
-}
-.form-input input:hover,
-.form-input input:focus,
-.form-input input:active,
-.form-input input:focus-visible {
-  border: 1px solid #EEA5A6; // Color del borde al pasar el ratón o enfocar
-}
+h1
+  text-align: center
+  color: #000000
 
-.submit-button {
-  background-color: $primary-color; // Usando el color primario para los botones de envío
-}
-.submit-button:hover {
-  background-color: #EEA5A6; // Color de fondo del botón al pasar el ratón
-}
+.centered-index-content
+  margin: 5% 10% 0 10%
 
-.register-link {
-  text-align: center;
-}
+.login-container
+  max-width: 400px
+  margin: 0 auto
+  padding: 20px
+  border: 1px solid #000000
+  border-radius: 5px
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  width: 90%
 
-.search-bar input[type=text] {
-  border: 1px solid $primary-color; // Usando el color primario para el borde del campo de entrada de búsqueda
-}
-.search-bar input:hover,
-.search-bar input:focus,
-.search-bar input:active,
-.search-bar input:focus-visible {
-  border: 1px solid #EEA5A6; // Color del borde al pasar el ratón o enfocar
-}
+.title
+  font-size: 24px
+  text-align: center
 
-.search-bar button {
-  background-color: $primary-color; // Usando el color primario para el botón de búsqueda
-}
-.search-bar button:hover {
-  background-color: #EEA5A6; // Color de fondo del botón al pasar el ratón
-}
+.login-form
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.form-group
+  display: flex
+  justify-content: start
+  width: 100%
+  flex-direction: column
+
+  button
+    color: rgb(249, 249, 249)
+    background-color: #ff0000
+    border-radius: 20px
+    align-self: center
+
+    &:hover
+      background-color: #c8494b
+
+#mostrarContrasena
+  width: 80px
+  align-self: flex-end
+
+.form-label
+  font-size: 16px
+  margin: 10px 0
+
+.form-input
+  width: 100%
+  padding: 8px
+  font-size: 16px
+  border: 1px solid #b57a7a
+  border-radius: 20px
+  align-self: center
+
+  input
+    &:hover,
+    &:focus,
+    &:active,
+    &:focus-visible
+      border: 1px solid #EEA5A6
+      outline-width: 1px
+      outline-style: solid
+      outline-color: #EEA5A6
+
+.show-password-label
+  font-size: 12px
+
+.submit-button
+  padding: 10px
+  font-size: 16px
+  background-color: #ff0000
+  color: white
+  border: none
+  border-radius: 20px
+  cursor: pointer
+  margin: 20px
+  width: 100%
+
+  &:hover
+    background-color: #ff7275
+
+.register-link
+  margin-top: 10px
+  text-align: center
+
+.action-buttons
+  display: flex
+  justify-content: center
+  align-items: center
+  margin: 2em auto
+
+  form
+    margin: 0
+
+  button
+    padding: 5px 10px
+    margin-right: 5px
+    background-color: #ff1900
+    color: white
+    border: none
+    border-radius: 20px
+    cursor: pointer
+
+    &:hover
+      background-color: #EEA5A6
+
+  span
+    margin: 0 5px
+    font-weight: bold
+
+p
+  color: #000000
+
+  &.empty-cart
+    text-align: center
+    font-style: italic
+    color: #777
+    margin-top: 20px
+
+.general-container
+  margin: 5%
+  min-width: 250px
+
+.search-bar
+  display: flex
+  justify-content: center
+  align-items: center
+  min-width: 250px
+
+  input[type="text"]
+    flex: 1
+    padding: 8px
+    font-size: 16px
+    border: 1px solid #ff0000
+    border-radius: 20px
+
+  button
+    padding: 8px 15px
+    margin-left: 10px
+    background-color: #ff0000
+    color: white
+    border: none
+    border-radius: 20px
+    cursor: pointer
+    transition: background-color 0.3s
+
+    &:hover
+      background-color: #ff6366
+
+.button-container
+  display: flex
+  justify-content: space-evenly
+  margin-top: 20px
+
+.button-confirm,
+.button-cancel,
+.button-return
+  padding: 10px 20px
+  margin: 10px
+  font-size: 16px
+  border: none
+  cursor: pointer
+  text-decoration: none
+  border-radius: 20px
+
+.button-confirm
+  background-color: #87A8A4
+  color: white
+
+  &:hover
+    background-color: #416D19
+
+.button-cancel
+  background-color: #f44336
+  color: white
+
+.button-return
+  background-color: #ffcc00
+  color: rgb(0, 0, 0)
+
+  &:hover
+    background-color: #7e8041
+
+.button-confirm:hover,
+.button-cancel:hover,
+.button-return:hover
+  opacity: 0.9
+
+@media only screen and (max-width: 600px)
+  nav
+    padding: 5px 0
+
+    ul
+      margin-left: 10px
+
+    li
+      margin-right: 10px

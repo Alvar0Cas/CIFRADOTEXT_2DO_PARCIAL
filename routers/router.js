@@ -16,3 +16,5 @@ router.use('/registro', registro);
 router.use('/registrar-usuario', registrarUsuario);
 
 module.exports = router;
+
+
